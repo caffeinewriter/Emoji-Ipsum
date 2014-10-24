@@ -27,9 +27,14 @@ button {
     margin: 0px 4px;
 }
 
+.container {
+    width: 100%;   
+}
+
 .emojiDisplay {
     width: 85%;
     margin: 0px auto;
+    padding-bottom: 10px;
 }
 
 .emojiIpsum {
@@ -93,4 +98,12 @@ fieldset {
 
 fieldset table tr td:first-child {
     padding-left: 36px;
+}
+
+textarea {
+    font-family: 'Inconsolata', 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+.footer {
+    text-align: center;
 }

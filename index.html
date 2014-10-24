@@ -6,60 +6,63 @@
         <link href='css/main.css' rel='stylesheet' type='text/css'>
     </head>
     <body>
-        <h1>Emoji Ipsum</h1>
-        <p class="introPara">This is really just a silly experiment that will probably not work properly for all browsers, but was a fun hack nonetheless. It's just a simple generator for lots of random emojis. Chrome will likely not work with this, at least not at the time of creation. You can get it to work by using the lovely <a href="https://chrome.google.com/webstore/detail/chromoji-emoji-for-google/cahedbegdkagmcjfolhdlechbkeaieki">Chromoji</a> addon. It should work in Firefox and Safari at least. As for the pervasive Internet Explorer, <a href="http://browsehappy.com/">get a modern browser</a>. There's a lot of work to be done on this.</p>
-        <div class="buttons">
-            <button class="genPara">New Emoji Ipsum</button>
-            <button class="togglePlain">Toggle Plain Text</button>
-            <button class="toggleSettings">Toggle Settings</button>
-        </div>
-        <div class="settingsDisplay">
-            <fieldset>
-                <table>
-                    <th>
-                        Letters per word:
-                    </th>
-                    <tr>
-                        <td><label for="wordMin">Minimum:</label></td>
-                        <td><input type="number" value="4" name="wordMin" class="wordMin" min="1"></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="wordMax">Maximum:</label></td>
-                        <td>
-                            <input type="number" value="8" name="wordMax" class="wordMax" min="1">
-                        </td>
-                    </tr>
-                    <th>Words per Sentence:</th>
-                    <tr>
-                        <td><label for="wordsPerSentenceMin">Minimum:</label></td>
-                        <td><input type="number" value="8" name="wordsPerSentenceMin" class="wordsPerSentenceMin" min="1"></td>
-                    </tr>
-                    <tr>
-                        <td><label for="wordsPerSentenceMax">Maximum:</label></td>
-                        <td><input type="number" value="16" name="wordsPerSentenceMax" class="wordsPerSentenceMax" min="1"></td>
-                    </tr>
-                    <th>Sentences per Paragraph:</th>
-                    <tr>
-                        <td><label for="paraSentenceMin">Minimum:</label></td>
-                        <td><input type="number" value="3" name="paraSentenceMin" class="paraSentenceMin" min="1"></td>
-                    </tr>
-                    <tr>
-                        <td><label for="paraSentenceMax">Minimum:</label></td>
-                        <td><input type="number" value="6" name="paraSentenceMax" class="paraSentenceMax" min="1"></td>
-                    </tr>
-                    <th>Total Paragraphs:</th>
-                    <tr>
-                        <td><label for="totParas">Number:</label></td>
-                        <td><input type="number" value="4" name="totParas" class="totParas" min="1"></td>
-                    </tr>
-                </table>
-                <button class="saveSettings">Save Settings</button>
-            </fieldset>
-        </div>
-        <div class="emojiDisplay">
-            <div class="emojiIpsum"></div>
-            <textarea class="emojiPlain"></textarea>
+        <div class="container">
+            <h1>Emoji Ipsum</h1>
+            <p class="introPara">This is really just a silly experiment that will probably not work properly for all browsers, but was a fun hack nonetheless. It's just a simple generator for lots of random emojis. Chrome will likely not work with this, at least not at the time of creation. You can get it to work by using the lovely <a href="https://chrome.google.com/webstore/detail/chromoji-emoji-for-google/cahedbegdkagmcjfolhdlechbkeaieki">Chromoji</a> addon. It should work in Firefox and Safari at least. As for the pervasive Internet Explorer, <a href="http://browsehappy.com/">get a modern browser</a>. There's a lot of work to be done on this.</p>
+            <div class="buttons">
+                <button class="genPara">New Emoji Ipsum</button>
+                <button class="togglePlain">Toggle Plain Text</button>
+                <button class="toggleSettings">Toggle Settings</button>
+            </div>
+            <div class="settingsDisplay">
+                <fieldset>
+                    <table>
+                        <th>
+                            Letters per word:
+                        </th>
+                        <tr>
+                            <td><label for="wordMin">Minimum:</label></td>
+                            <td><input type="number" value="4" name="wordMin" class="wordMin" min="1"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="wordMax">Maximum:</label></td>
+                            <td>
+                                <input type="number" value="8" name="wordMax" class="wordMax" min="1">
+                            </td>
+                        </tr>
+                        <th>Words per Sentence:</th>
+                        <tr>
+                            <td><label for="wordsPerSentenceMin">Minimum:</label></td>
+                            <td><input type="number" value="8" name="wordsPerSentenceMin" class="wordsPerSentenceMin" min="1"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="wordsPerSentenceMax">Maximum:</label></td>
+                            <td><input type="number" value="16" name="wordsPerSentenceMax" class="wordsPerSentenceMax" min="1"></td>
+                        </tr>
+                        <th>Sentences per Paragraph:</th>
+                        <tr>
+                            <td><label for="paraSentenceMin">Minimum:</label></td>
+                            <td><input type="number" value="3" name="paraSentenceMin" class="paraSentenceMin" min="1"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="paraSentenceMax">Minimum:</label></td>
+                            <td><input type="number" value="6" name="paraSentenceMax" class="paraSentenceMax" min="1"></td>
+                        </tr>
+                        <th>Total Paragraphs:</th>
+                        <tr>
+                            <td><label for="totParas">Number:</label></td>
+                            <td><input type="number" value="4" name="totParas" class="totParas" min="1"></td>
+                        </tr>
+                    </table>
+                    <button class="saveSettings">Save Settings</button>
+                </fieldset>
+            </div>
+            <div class="emojiDisplay">
+                <div class="emojiIpsum"></div>
+                <textarea class="emojiPlain"></textarea>
+            </div>
+            <small class="footer">Made with &#10084; by <a href="https://github.com/caffeinewriter">Brandon Anzaldi</a></small>
         </div>
         <a href="https://github.com/caffeinewriter/Emoji-Ipsum"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
