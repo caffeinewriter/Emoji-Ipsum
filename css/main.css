@@ -23,5 +23,5 @@ h1 {
 }
 
 .emojiPlain {
-    visibility: hidden;
+    display: none;
 }
