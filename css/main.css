@@ -18,10 +18,15 @@ h1 {
     text-align: left;
 }
 
-.genPara {
+.buttons {
     margin: 0px auto;
 }
 
 .emojiPlain {
     display: none;
+    height: 75%;
+}
+
+.emojiIpsum,.emojiPlain {
+    width: 100%;
 }

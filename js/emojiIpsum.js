@@ -23,9 +23,11 @@ EmojiIpsum.prototype.emojiWord = function() {
 EmojiIpsum.prototype.genSentence = function() {
   var curSentence = '';
   var endAt = this.randomInt(this.wordsPerSentenceMin,this.wordsPerSentenceMax);
+    console.log(endAt);
   for (j=0;j<endAt;j++) {
-    curSentence += this.emojiWord() + ((j === endAt-1)?' ':'. ');
+    curSentence += this.emojiWord() + ((j !== endAt-1)?' ':'. ');
   }
+    console.log(curSentence);
   return curSentence;
 }
 

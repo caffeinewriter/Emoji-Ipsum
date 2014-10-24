@@ -10,8 +10,10 @@
             <div class="emojiIpsum"></div>
             <textarea class="emojiPlain"></textarea>
         </div>
-        <button class="genPara">New Emoji Ipsum</button>
-        <button class="togglePlain">Toggle Plain Text</button>
+        <div class="buttons">
+            <button class="genPara">New Emoji Ipsum</button>
+            <button class="togglePlain">Toggle Plain Text</button>
+        </div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="js/emojiIpsum.js"></script>
         <script>
@@ -23,7 +25,7 @@
             $('.genPara').click(function() {
                 var emojiHTML = emoji.genHTML();
                 $('.emojiIpsum').html(emojiHTML);
-                $('.emojiPlain').val(emojiHTML);
+                $('.emojiPlain').val(emojiHTML.replace(/<\/?p>/,''));
             });
             $('.emojiPlain').click(function() {
                 $(this).select();
