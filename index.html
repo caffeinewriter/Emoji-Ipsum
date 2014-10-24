@@ -99,6 +99,7 @@
                 emoji = new EmojiIpsum(worMin,worMax,wordPerSentenceMin,wordPerSentenceMax,parSentenceMin,parSentenceMax);
                 var emojiHTML = emoji.genHTML(totParas);
                 $('.emojiIpsum').html(emojiHTML);
+                $('.emojiPlain').val(emojiHTML.replace(/<\/?p>/,''));
             });
             $(document).ready(function() { 
                 emoji = new EmojiIpsum();
