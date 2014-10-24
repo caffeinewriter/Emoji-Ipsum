@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Emoji Ipsum</title>
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+pro:400,300' rel='stylesheet' type='text/css'>
+        <link href='/css/main.css' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <div class="emojiDisplay">
+            <div class="emojiIpsum"></div>
+            <textarea class="emojiPlain"></textarea>
+        </div>
+        <button class="genPara">New Emoji Ipsum</button>
+        <button class="togglePlain">Toggle Plain Text</button>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="/js/emojiIpsum.js"></script>
+        <script>
+            var emoji = new EmojiIpsum();
+            $('.togglePlain').click(function(){
+                $('.emojiIpsum').toggle();
+                $('.emojiPlain').toggle();
+            });
+            $('.genPara').click(function() {
+                var emojiHTML = emoji.genHTML();
+                $('.emojiIpsum').html(emojiHTML);
+                $('.emojiPlain').val(emojiHTML);
+            });
+            $('.emojiPlain').click(function() {
+                $(this).select();
+            });
+        </script>
+    </body>
+</html>
