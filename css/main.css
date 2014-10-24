@@ -19,9 +19,11 @@ button {
     font-weight: 300;
     font-size: 1.4em;
     padding: .25em .75em;
-    background-color: #94C1FF;
+    background-color: #BDD8FF;
     font-weight: 500;
     border-radius: 5px;
+    box-shadow: 0px 2px 3px 2px #D6CAC7;
+    margin: 0px 4px;
 }
 
 .emojiDisplay {
@@ -43,7 +45,6 @@ button {
 }
 
 .genPara, .togglePlain {
-    margin: 0px auto;
     text-align:center;
 }
 
@@ -69,8 +70,10 @@ button {
 }
 
 .settingsDisplay {
-    width: 90%;
+    width: 85%;
     margin: 10px auto;
+    display: none;
+    padding-bottom: 12px;
     
 }
 
@@ -82,6 +85,9 @@ button {
 
 fieldset {
     text-align: left;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 2px 3px 2px #D6CAC7;
 }
 
 fieldset table tr td:first-child {

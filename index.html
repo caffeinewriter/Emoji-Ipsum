@@ -11,7 +11,7 @@
         <div class="buttons">
             <button class="genPara">New Emoji Ipsum</button>
             <button class="togglePlain">Toggle Plain Text</button>
-            <button class="changeSettings">Change Settings</button>
+            <button class="toggleSettings">Toggle Settings</button>
         </div>
         <div class="settingsDisplay">
             <fieldset>
@@ -85,15 +85,20 @@
             $('.emojiPlain').click(function() {
                 $(this).select();
             });
+            $('.toggleSettings').click(function(){
+                $('.settingsDisplay').toggle(400);
+            });
             $('.saveSettings').click(function() {
-                wordMin = $('.wordMin').val();
-                wordMax = $('.wordMax').val();
-                wordsPerSentenceMin = $('.wordsPerSentenceMin').val();
-                wordsPerSentenceMax = $('.wordsPerSentenceMax').val();
-                paraSentenceMin = $('.paraSentenceMin').val();
-                paraSentenceMax = $('.paraSentenceMax').val();
+                worMin = $('.wordMin').val();
+                worMax = $('.wordMax').val();
+                wordPerSentenceMin = $('.wordsPerSentenceMin').val();
+                wordPerSentenceMax = $('.wordsPerSentenceMax').val();
+                parSentenceMin = $('.paraSentenceMin').val();
+                parSentenceMax = $('.paraSentenceMax').val();
                 totParas = $('.totParas').val();
-                emoji = new EmojiIpsum(wordMin,wordMax,wordsPerSentenceMin,wordsPerSentenceMax,paraSentenceMin,paraSentenceMax);
+                emoji = new EmojiIpsum(worMin,worMax,wordPerSentenceMin,wordPerSentenceMax,parSentenceMin,parSentenceMax);
+                var emojiHTML = emoji.genHTML(totParas);
+                $('.emojiIpsum').html(emojiHTML);
             });
             $(document).ready(function() { 
                 emoji = new EmojiIpsum();
