@@ -13,6 +13,50 @@
             <button class="togglePlain">Toggle Plain Text</button>
             <button class="changeSettings">Change Settings</button>
         </div>
+        <div class="settingsDisplay">
+            <fieldset>
+                <table>
+                    <th>
+                        Letters per word:
+                    </th>
+                    <tr>
+                        <td><label for="wordMin">Minimum:</label></td>
+                        <td><input type="number" value="4" name="wordMin" class="wordMin" min="1"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="wordMax">Maximum:</label></td>
+                        <td>
+                            <input type="number" value="8" name="wordMax" class="wordMax" min="1">
+                        </td>
+                    </tr>
+                    <th>Words per Sentence:</th>
+                    <tr>
+                        <td><label for="wordsPerSentenceMin">Minimum:</label></td>
+                        <td><input type="number" value="8" name="wordsPerSentenceMin" class="wordsPerSentenceMin" min="1"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="wordsPerSentenceMax">Maximum:</label></td>
+                        <td><input type="number" value="20" name="wordsPerSentenceMax" class="wordsPerSentenceMax" min="1"></td>
+                    </tr>
+                    <th>Sentences per Paragraph:</th>
+                    <tr>
+                        <td><label for="paraSentenceMin">Minimum:</label></td>
+                        <td><input type="number" value="3" name="paraSentenceMin" class="paraSentenceMin" min="1"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="paraSentenceMax">Minimum:</label></td>
+                        <td><input type="number" value="6" name="paraSentenceMax" class="paraSentenceMax" min="1"></td>
+                    </tr>
+                    <th>Total Paragraphs:</th>
+                    <tr>
+                        <td><label for="totParas">Number:</label></td>
+                        <td><input type="number" value="4" name="totParas" class="totParas" min="1"></td>
+                    </tr>
+                </table>
+                <button class="saveSettings">Save Settings</button>
+            </fieldset>
+        </div>
         <div class="emojiDisplay">
             <div class="emojiIpsum"></div>
             <textarea class="emojiPlain"></textarea>
@@ -21,6 +65,14 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="js/emojiIpsum.js"></script>
         <script>
+            var emoji;
+            var wordMin = 4;
+            var wordMax = 8;
+            var wordsPerSentenceMin = 8;
+            var wordsPerSentenceMax = 20;
+            var paraSentenceMin = 3;
+            var paraSentenceMax = 6;
+            var totParas = 4;
             $('.togglePlain').click(function(){
                 $('.emojiIpsum').toggle();
                 $('.emojiPlain').toggle();
@@ -33,9 +85,19 @@
             $('.emojiPlain').click(function() {
                 $(this).select();
             });
+            $('.saveSettings').click(function() {
+                wordMin = $('.wordMin').val();
+                wordMax = $('.wordMax').val();
+                wordsPerSentenceMin = $('.wordsPerSentenceMin').val();
+                wordsPerSentenceMax = $('.wordsPerSentenceMax').val();
+                paraSentenceMin = $('.paraSentenceMin').val();
+                paraSentenceMax = $('.paraSentenceMax').val();
+                totParas = $('.totParas').val();
+                emoji = new EmojiIpsum(wordMin,wordMax,wordsPerSentenceMin,wordsPerSentenceMax,paraSentenceMin,paraSentenceMax);
+            });
             $(document).ready(function() { 
-                var emoji = new EmojiIpsum();
-                var emojiHTML = emoji.genHTML();
+                emoji = new EmojiIpsum();
+                var emojiHTML = emoji.genHTML(totParas);
                 $('.emojiIpsum').html(emojiHTML);
                 $('.emojiPlain').val(emojiHTML.replace(/<\/?p>/,''));
             });

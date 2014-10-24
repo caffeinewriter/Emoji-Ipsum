@@ -9,7 +9,7 @@ var EmojiIpsum = function(wordMin,wordMax,wordsPerSentenceMin,wordsPerSentenceMa
 };
 
 EmojiIpsum.prototype.randomInt = function(min,max) {
-  return Math.floor(Math.random()*(max - min + 1) + min);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 EmojiIpsum.prototype.emojiWord = function() {
@@ -25,11 +25,9 @@ EmojiIpsum.prototype.emojiWord = function() {
 EmojiIpsum.prototype.genSentence = function() {
   var curSentence = '';
   var endAt = this.randomInt(this.wordsPerSentenceMin,this.wordsPerSentenceMax);
-    console.log(endAt);
   for (j=0;j<endAt;j++) {
     curSentence += this.emojiWord() + ((j !== endAt-1)?' ':'. ');
   }
-    console.log(curSentence);
   return curSentence;
 }
 

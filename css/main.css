@@ -10,6 +10,10 @@ h1 {
     text-align: center;
 }
 
+label {
+    padding-right: 8px;
+}
+
 button {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
@@ -62,4 +66,24 @@ button {
     padding: 10px;
     width: 90%;
     margin: 0px auto;
+}
+
+.settingsDisplay {
+    width: 90%;
+    margin: 10px auto;
+    
+}
+
+.saveSettings {
+    margin-top: .75em;
+    font-size: 1em;
+    text-align: right;
+}
+
+fieldset {
+    text-align: left;
+}
+
+fieldset table tr td:first-child {
+    padding-left: 36px;
 }
