@@ -22,18 +22,6 @@ h1 {
     margin: 0px auto;
 }
 
-.emojiDisplay > .emojiPlain {
-    visibility: hidden;
-}
-
-.emojiDisplay > .emojiIpsum {
-    visibility: visible;
-}
-
-.emojiPlainDisplay > .emojiPlain {
-    visibility: visible;
-}
-
-.emojiPlainDisplay > .emojiIpsum {
+.emojiPlain {
     visibility: hidden;
 }
