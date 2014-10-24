@@ -2,10 +2,6 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
-.container {
-    width: 100%;
-}
-
 h1,h2,h3,h4,h5,h6 {
     font-weight: 400;
 }
@@ -14,12 +10,42 @@ h1 {
     text-align: center;
 }
 
+button {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    font-size: 1.4em;
+    padding: .25em .75em;
+    background-color: #94C1FF;
+    font-weight: 500;
+    border-radius: 5px;
+}
+
+.emojiDisplay {
+    width: 85%;
+    margin: 0px auto;
+}
+
 .emojiIpsum {
     text-align: left;
+    border-radius: 5px;
+    box-shadow: 0px 2px 3px 2px #D6CAC7;
+    word-spacing: 8px;
+    letter-spacing: -1px;
+}
+
+.emojiIpsum p {
+    width: 96%;
+    margin: 0px auto;
+}
+
+.genPara, .togglePlain {
+    margin: 0px auto;
+    text-align:center;
 }
 
 .buttons {
-    margin: 0px auto;
+    text-align:center;
+    padding: 10px;
 }
 
 .emojiPlain {
@@ -29,4 +55,11 @@ h1 {
 
 .emojiIpsum,.emojiPlain {
     width: 100%;
+    margin: 0px auto;
+}
+
+.introPara {
+    padding: 10px;
+    width: 90%;
+    margin: 0px auto;
 }
