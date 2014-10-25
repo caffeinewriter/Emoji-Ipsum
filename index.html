@@ -18,7 +18,14 @@
                 <fieldset>
                     <table>
                         <th>
-                            Letters per word:
+                            Emoji to Ipsum Ratio:
+                        </th>
+                        <tr>
+                            <td><label for="emojiRatio">Ratio:</label></td>
+                          <td>Mostly Ipsum<input type="range" min="10" max="100" step="10" name="emojiRatio" class="emojiRatio" value="100">All Emoji</td>
+                        </tr>
+                        <th>
+                            Emojis per word:
                         </th>
                         <tr>
                             <td><label for="wordMin">Minimum:</label></td>
@@ -99,7 +106,8 @@
                 parSentenceMin = $('.paraSentenceMin').val();
                 parSentenceMax = $('.paraSentenceMax').val();
                 totParas = $('.totParas').val();
-                emoji = new EmojiIpsum(worMin,worMax,wordPerSentenceMin,wordPerSentenceMax,parSentenceMin,parSentenceMax);
+                emojiRat = $('.emojiRatio').val();
+                emoji = new EmojiIpsum(worMin,worMax,wordPerSentenceMin,wordPerSentenceMax,parSentenceMin,parSentenceMax,emojiRat);
                 var emojiHTML = emoji.genHTML(totParas);
                 $('.emojiIpsum').html(emojiHTML);
                 $('.emojiPlain').val(emojiHTML.replace(/<\/?p>/,''));

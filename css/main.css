@@ -50,7 +50,7 @@ button {
 .emojiIpsum p {
     width: 96%;
     margin: 0px auto;
-    word-spacing: 10px;
+    word-spacing: 3px;
     letter-spacing: -1px;
 }
 
