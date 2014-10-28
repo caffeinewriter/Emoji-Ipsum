@@ -116,4 +116,10 @@ textarea {
 
 .footer {
     text-align: center;
+    margin: 0px auto;
+}
+
+.header {
+    font-size: 48px;
+    margin-bottom: 8px;
 }
