@@ -5,6 +5,16 @@ A Lorem Ipsum generator that's emoji-centric. This is extremely basic, may not w
 
 ##Documentation
 
+* [`constructor`](#constructor)
+* [`genPara()`](#genpara)
+* [`genHTML()`](#genhtmltotalparagraphs)
+* [`randomInt()`](#randomintmin-max)
+* [`capitalizeFirstLetter()`](#capitalizefirstletterstring)
+* [`emojiWord()`](#emojiword)
+* [`ipsumWord()`](#ipsumword)
+* [`genSentence()`](#gensentence)
+
+
 ###`constructor`
 
 Create a new instance of `EmojiIpsum`.
