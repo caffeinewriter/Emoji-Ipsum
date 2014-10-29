@@ -1,133 +1,133 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Emoji Ipsum</title>
-        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,500' rel='stylesheet' type='text/css'>
-        <link href='css/main.css' rel='stylesheet' type='text/css'>
-    </head>
-    <body>
-        <div class="container">
-            <h1 class="header">Emoji Ipsum</h1>
-            <p class="introPara">This is really just a silly, mostly useless experiment that will probably not work properly for all browsers, but was a fun hack nonetheless. It's just a simple generator for lots of random emojis. Desktop Chrome will likely not work with this, at least not at the time of creation. You can get it to work by using the lovely <a href="https://chrome.google.com/webstore/detail/chromoji-emoji-for-google/cahedbegdkagmcjfolhdlechbkeaieki">Chromoji</a> addon. It should work in Firefox and Safari at least. As for the pervasive Internet Explorer, <a href="http://browsehappy.com/">get a modern browser</a>. There's a lot of work to be done on this. Please check out the <a href="https://github.com/caffeinewriter/Emoji-Ipsum/issues">issues page</a> if you're interested in contributing.</p>
-            <div class="buttons">
-                <button class="genPara">New Emoji Ipsum</button>
-                <button class="togglePlain">Toggle Plain Text</button>
-                <button class="toggleSettings">Toggle Settings</button>
-            </div>
-            <div class="settingsDisplay">
-                <fieldset>
-                    <table>
-                        <th>
-                            Emoji to Ipsum Ratio:
-                        </th>
-                        <tr>
-                            <td><label for="emojiRatio">Ratio:</label></td>
-                          <td>Mostly Ipsum<input type="range" min="10" max="100" step="10" name="emojiRatio" class="emojiRatio" value="100">All Emoji</td>
-                        </tr>
-                        <th>
-                            Emojis per word:
-                        </th>
-                        <tr>
-                            <td><label for="wordMin">Minimum:</label></td>
-                            <td><input type="number" value="4" name="wordMin" class="wordMin" min="1"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="wordMax">Maximum:</label></td>
-                            <td>
-                                <input type="number" value="8" name="wordMax" class="wordMax" min="1">
-                            </td>
-                        </tr>
-                        <th>Words per Sentence:</th>
-                        <tr>
-                            <td><label for="wordsPerSentenceMin">Minimum:</label></td>
-                            <td><input type="number" value="8" name="wordsPerSentenceMin" class="wordsPerSentenceMin" min="1"></td>
-                        </tr>
-                        <tr>
-                            <td><label for="wordsPerSentenceMax">Maximum:</label></td>
-                            <td><input type="number" value="16" name="wordsPerSentenceMax" class="wordsPerSentenceMax" min="1"></td>
-                        </tr>
-                        <th>Sentences per Paragraph:</th>
-                        <tr>
-                            <td><label for="paraSentenceMin">Minimum:</label></td>
-                            <td><input type="number" value="3" name="paraSentenceMin" class="paraSentenceMin" min="1"></td>
-                        </tr>
-                        <tr>
-                            <td><label for="paraSentenceMax">Minimum:</label></td>
-                            <td><input type="number" value="6" name="paraSentenceMax" class="paraSentenceMax" min="1"></td>
-                        </tr>
-                        <th>Total Paragraphs:</th>
-                        <tr>
-                            <td><label for="totParas">Number:</label></td>
-                            <td><input type="number" value="4" name="totParas" class="totParas" min="1"></td>
-                        </tr>
-                    </table>
-                    <button class="saveSettings">Save Settings</button>
-                </fieldset>
-            </div>
-            <div class="emojiDisplay">
-                <div class="emojiIpsum"></div>
-                <textarea class="emojiPlain"></textarea>
-            </div>
-          <div class="footer"><small>Made with &#10084; by <a href="https://github.com/caffeinewriter">Brandon Anzaldi</a></small></div>
-        </div>
-        <a href="https://github.com/caffeinewriter/Emoji-Ipsum"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="js/emojiIpsum.js"></script>
-        <script>
-            var emoji;
-            var wordMin = 4;
-            var wordMax = 8;
-            var wordsPerSentenceMin = 8;
-            var wordsPerSentenceMax = 16;
-            var paraSentenceMin = 3;
-            var paraSentenceMax = 6;
-            var totParas = 4;
-            $('.togglePlain').click(function(){
-                $('.emojiIpsum').toggle();
-                $('.emojiPlain').toggle();
-            });
-            $('.genPara').click(function() {
-                var emojiHTML = emoji.genHTML();
-                $('.emojiIpsum').html(emojiHTML);
-                $('.emojiPlain').val(emojiHTML.replace(/<\/?p>/,''));
-            });
-            $('.emojiPlain').click(function() {
-                $(this).select();
-            });
-            $('.toggleSettings').click(function(){
-                $('.settingsDisplay').toggle(400);
-            });
-            $('.saveSettings').click(function() {
-                worMin = $('.wordMin').val();
-                worMax = $('.wordMax').val();
-                wordPerSentenceMin = $('.wordsPerSentenceMin').val();
-                wordPerSentenceMax = $('.wordsPerSentenceMax').val();
-                parSentenceMin = $('.paraSentenceMin').val();
-                parSentenceMax = $('.paraSentenceMax').val();
-                totParas = $('.totParas').val();
-                emojiRat = $('.emojiRatio').val();
-                emoji = new EmojiIpsum(worMin,worMax,wordPerSentenceMin,wordPerSentenceMax,parSentenceMin,parSentenceMax,emojiRat);
-                var emojiHTML = emoji.genHTML(totParas);
-                $('.emojiIpsum').html(emojiHTML);
-                $('.emojiPlain').val(emojiHTML.replace(/<\/?p>/,''));
-            });
-            $(document).ready(function() {
-                emoji = new EmojiIpsum();
-                var emojiHTML = emoji.genHTML(totParas);
-                $('.emojiIpsum').html(emojiHTML);
-                $('.emojiPlain').val(emojiHTML.replace(/<\/?p>/,''));
-            });
-        </script>
-        <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  <head>
+    <title>Emoji Ipsum</title>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,500' rel='stylesheet' type='text/css'>
+    <link href='css/main.css' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="header">Emoji Ipsum</h1>
+      <p class="introPara">This is really just a silly, mostly useless experiment that will probably not work properly for all browsers, but was a fun hack nonetheless. It's just a simple generator for lots of random emojis. Desktop Chrome will likely not work with this, at least not at the time of creation. You can get it to work by using the lovely <a href="https://chrome.google.com/webstore/detail/chromoji-emoji-for-google/cahedbegdkagmcjfolhdlechbkeaieki">Chromoji</a> addon. It should work in Firefox and Safari at least. As for the pervasive Internet Explorer, <a href="http://browsehappy.com/">get a modern browser</a>. There's a lot of work to be done on this. Please check out the <a href="https://github.com/caffeinewriter/Emoji-Ipsum/issues">issues page</a> if you're interested in contributing.</p>
+      <div class="buttons">
+        <button class="genPara">New Emoji Ipsum</button>
+        <button class="togglePlain">Toggle Plain Text</button>
+        <button class="toggleSettings">Toggle Settings</button>
+      </div>
+      <div class="settingsDisplay">
+        <fieldset>
+          <table>
+            <th>
+              Emoji to Ipsum Ratio:
+            </th>
+            <tr>
+              <td><label for="emojiRatio">Ratio:</label></td>
+              <td>Mostly Ipsum<input type="range" min="10" max="100" step="10" name="emojiRatio" class="emojiRatio" value="100">All Emoji</td>
+            </tr>
+            <th>
+              Emojis per word:
+            </th>
+            <tr>
+              <td><label for="wordMin">Minimum:</label></td>
+              <td><input type="number" value="4" name="wordMin" class="wordMin" min="1"></td>
+            </tr>
+            <tr>
+              <td>
+                <label for="wordMax">Maximum:</label></td>
+              <td>
+                <input type="number" value="8" name="wordMax" class="wordMax" min="1">
+              </td>
+            </tr>
+            <th>Words per Sentence:</th>
+            <tr>
+              <td><label for="wordsPerSentenceMin">Minimum:</label></td>
+              <td><input type="number" value="8" name="wordsPerSentenceMin" class="wordsPerSentenceMin" min="1"></td>
+            </tr>
+            <tr>
+              <td><label for="wordsPerSentenceMax">Maximum:</label></td>
+              <td><input type="number" value="16" name="wordsPerSentenceMax" class="wordsPerSentenceMax" min="1"></td>
+            </tr>
+            <th>Sentences per Paragraph:</th>
+            <tr>
+              <td><label for="paraSentenceMin">Minimum:</label></td>
+              <td><input type="number" value="3" name="paraSentenceMin" class="paraSentenceMin" min="1"></td>
+            </tr>
+            <tr>
+              <td><label for="paraSentenceMax">Minimum:</label></td>
+              <td><input type="number" value="6" name="paraSentenceMax" class="paraSentenceMax" min="1"></td>
+            </tr>
+            <th>Total Paragraphs:</th>
+            <tr>
+              <td><label for="totParas">Number:</label></td>
+              <td><input type="number" value="4" name="totParas" class="totParas" min="1"></td>
+            </tr>
+          </table>
+          <button class="saveSettings">Save Settings</button>
+        </fieldset>
+      </div>
+      <div class="emojiDisplay">
+        <div class="emojiIpsum"></div>
+        <textarea class="emojiPlain"></textarea>
+      </div>
+      <div class="footer"><small>Made with &#10084; by <a href="https://github.com/caffeinewriter">Brandon Anzaldi</a></small></div>
+    </div>
+    <a href="https://github.com/caffeinewriter/Emoji-Ipsum"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/emojiIpsum.js"></script>
+    <script>
+      var emoji;
+      var wordMin = 4;
+      var wordMax = 8;
+      var wordsPerSentenceMin = 8;
+      var wordsPerSentenceMax = 16;
+      var paraSentenceMin = 3;
+      var paraSentenceMax = 6;
+      var totParas = 4;
+      $('.togglePlain').click(function(){
+        $('.emojiIpsum').toggle();
+        $('.emojiPlain').toggle();
+      });
+      $('.genPara').click(function() {
+        var emojiHTML = emoji.genHTML();
+        $('.emojiIpsum').html(emojiHTML);
+        $('.emojiPlain').val(emojiHTML.replace(/<\/?p>/,''));
+      });
+      $('.emojiPlain').click(function() {
+        $(this).select();
+      });
+      $('.toggleSettings').click(function(){
+        $('.settingsDisplay').toggle(400);
+      });
+      $('.saveSettings').click(function() {
+        worMin = $('.wordMin').val();
+        worMax = $('.wordMax').val();
+        wordPerSentenceMin = $('.wordsPerSentenceMin').val();
+        wordPerSentenceMax = $('.wordsPerSentenceMax').val();
+        parSentenceMin = $('.paraSentenceMin').val();
+        parSentenceMax = $('.paraSentenceMax').val();
+        totParas = $('.totParas').val();
+        emojiRat = $('.emojiRatio').val();
+        emoji = new EmojiIpsum(worMin,worMax,wordPerSentenceMin,wordPerSentenceMax,parSentenceMin,parSentenceMax,emojiRat);
+        var emojiHTML = emoji.genHTML(totParas);
+        $('.emojiIpsum').html(emojiHTML);
+        $('.emojiPlain').val(emojiHTML.replace(/<\/?p>/,''));
+      });
+      $(document).ready(function() {
+        emoji = new EmojiIpsum();
+        var emojiHTML = emoji.genHTML(totParas);
+        $('.emojiIpsum').html(emojiHTML);
+        $('.emojiPlain').val(emojiHTML.replace(/<\/?p>/,''));
+      });
+    </script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-          ga('create', 'UA-56155581-1', 'auto');
-          ga('send', 'pageview');
+      ga('create', 'UA-56155581-1', 'auto');
+      ga('send', 'pageview');
 
-        </script>
-    </body>
+    </script>
+  </body>
 </html>
