@@ -26,7 +26,7 @@ EmojiIpsum.prototype.emojiWord = function() {
   var emojiKey;
   for (i=0;i<this.randomInt(this.wordMin,this.wordMax);i++) {
     emojiKey = Math.floor(Math.random()*this.emojis.length-1);
-    curWord += (this.emojis[emojiKey] != undefined)?this.emojis[emojiKey]:'&#128137;';
+    curWord += (this.emojis[emojiKey] != undefined)?this.emojis[emojiKey]:'&#128137;'; //Until I can figure out why it returns undefined sometimes, replace it with a static emoji.
   }
   return curWord;
 }
