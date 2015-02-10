@@ -29,7 +29,7 @@ All ranges are inclusive.
 `wordsPerSentenceMax` - Maximum number of words per sentence. Defaults to `16`.
 `paraSentenceMin` - Minimum number of sentences per paragraph. Defaults to `3`.
 `paraSentenceMax` - Maximum number of sentences per paragraph. Defaults to `6`.
-`emojiRatio` - Integer representation of percentage of Ipsum that should be emojis. Defaults to `100`.
+`emojiRatio` - Integer representation of percentage of Ipsum that should be emoji. Defaults to `100`.
 
 ###`genPara()`
 
@@ -49,7 +49,7 @@ Capitalizes the first letter of `string` and returns the transformation.
 
 ###`emojiWord()`
 
-Generates a word out of emoji HTML entities, and returns it. The word will contain a random number of emojis between `wordMin` and `wordMax`.
+Generates a word out of emoji HTML entities, and returns it. The word will contain a random number of emoji between `wordMin` and `wordMax`.
 
 ###`ipsumWord()`
 
@@ -57,4 +57,4 @@ Returns a random word of latin ipsum. Does not conform to `wordMin` and `wordMax
 
 ###`genSentence()`
 
-Returns a sentence, with `emojiRatio` percentage of emojis, and a random number of words between `wordsPerSentenceMin`, and `wordsPerSentenceMax`.
+Returns a sentence, with `emojiRatio` percentage of emoji, and a random number of words between `wordsPerSentenceMin`, and `wordsPerSentenceMax`.
